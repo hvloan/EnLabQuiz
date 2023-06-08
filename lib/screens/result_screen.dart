@@ -4,6 +4,7 @@ import 'package:enlab_quiz/screens/all_quiz_done.dart';
 import 'package:enlab_quiz/screens/quiz_screen.dart';
 import 'package:enlab_quiz/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -185,29 +186,6 @@ class ResultScreen extends StatelessWidget {
                       color: AppColors.vlRedColor,
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
                   child: ButtonWidget(
-                    textLabelButton: const Text("Try Again!"),
-                    colorTextLabelButton: AppColors.vlWhiteColor,
-                    colorButton: AppColors.vlRedColor,
-                    onPress: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const QuizScreen(),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                Container(
-                  width: 160,
-                  height: 45,
-                  margin: const EdgeInsets.only(top: 18),
-                  decoration: const BoxDecoration(
-                      color: AppColors.vlRedColor,
-                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                  child: ButtonWidget(
                     textLabelButton: const Text("View all this exam"),
                     colorTextLabelButton: AppColors.vlWhiteColor,
                     colorButton: AppColors.vlRedColor,
@@ -219,6 +197,50 @@ class ResultScreen extends StatelessWidget {
                       );
                     },
                   ),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: 160,
+                      height: 45,
+                      margin: const EdgeInsets.only(top: 18),
+                      decoration: const BoxDecoration(
+                          color: AppColors.vlRedColor,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.0))),
+                      child: ButtonWidget(
+                        textLabelButton: const Text("Exit!"),
+                        colorTextLabelButton: AppColors.vlWhiteColor,
+                        colorButton: AppColors.vlRedColor,
+                        onPress: () => SystemNavigator.pop(),
+                      ),
+                    ),
+                    Container(
+                      width: 160,
+                      height: 45,
+                      margin: const EdgeInsets.only(top: 18),
+                      decoration: const BoxDecoration(
+                          color: AppColors.vlRedColor,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.0))),
+                      child: ButtonWidget(
+                        textLabelButton: const Text("Try Again!"),
+                        colorTextLabelButton: AppColors.vlWhiteColor,
+                        colorButton: AppColors.vlRedColor,
+                        onPress: () => {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const QuizScreen(),
+                            ),
+                          ),
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
