@@ -60,7 +60,7 @@ class _AllQuizDoneScreenState extends State<AllQuizDoneScreen> {
                             .options
                             .map(
                               (e) => Text(
-                                e.option,
+                                AppParser.parseHtmlString(e.option),
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: e.value == 2
