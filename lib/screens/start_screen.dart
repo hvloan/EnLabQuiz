@@ -20,32 +20,27 @@ class _StartScreenState extends State<StartScreen> {
       backgroundColor: AppColors.vlBackgroundColor,
       body: SafeArea(
         child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(AppAssets.imgQuizUrl),
-                ButtonWidget(
-                  textLabelButton: const Text("Start Quiz"),
-                  colorTextLabelButton: AppColors.vlWhiteColor,
-                  colorButton: AppColors.vlRedColor,
-                  onPress: () async {
-                    if (context.mounted) {
-                      Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const QuizScreen(),
-                      ),
-                    );
-                    }
-                  },
-                ),
-              ],
-            ),
-          ),
+          child: Image.asset(AppAssets.imgQuizUrl, width: 150, height: 150,),
         ),
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(left: 45, right: 45,),
+        child: ButtonWidget(
+          textLabelButton: const Text("START QUIZ"),
+          colorTextLabelButton: AppColors.vlWhiteColor,
+          colorButton: AppColors.vlRedColor,
+          onPress: () async {
+            if (context.mounted) {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const QuizScreen(),
+                ),
+              );
+            }
+          },
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
